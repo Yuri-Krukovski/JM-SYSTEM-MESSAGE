@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Workspace Page</title>
+    <link rel="stylesheet" th:href="@{../bootstrap/bootstrap-4.3.1-dist/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script th:src="@{/js/preloader.js}"></script>
+    <script th:src="@{/js/jquery/jquery-3.4.1.min.js}"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+            integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+            integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+            crossorigin="anonymous"></script>
+    <link href="css/jquery-ui.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+            integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+            integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+            crossorigin="anonymous"></script>
+    <link href="css/jquery-ui.css" rel="stylesheet">
+
+    <script th:src="@{/js/rest/entities-rest-pagination.js}" type="module"></script>
+    <script th:src="@{/js/workspace-page/workspace-page.js}" type="module"></script>
+    <script th:src="@{../bootstrap/bootstrap-4.3.1-dist/js/bootstrap.min.js}"></script>
+    <script defer th:src="@{/js/workspace-page/components/footer/input-box.js}" type="module"></script>
+    <script defer th:src="@{/js/workspace-page/settingsMenu.js}" type="module"></script>
+    <script defer type="module" th:src="@{/js/searchUsersOnInputMessages.js}"></script>
+    <script type="text/javascript" th:src="@{/js/workspace-page/components/sidebar/ChannelView.js}"></script>
+    <script th:src="@{/js/admin-page/components/editBots.js}" type="module"></script>
+
+
+
+    <!--    <script defer th:src="@{/js/message-box.js}" type="module"></script>-->
+
+    <script defer th:src="@{/js/workspace-page/components/navbar/channel_topic.js}" type="module"></script>
+
+    <script defer th:src="@{/js/workspace-page/user_view_edit.js}" type="module"></script>
+
+
+    <!--    <script defer th:src="@{/js/message-show.js}" type="module"></script>-->
+    <script defer th:src="@{/js/workspace-page/components/footer/messages.js}" type="module"></script>
+    <script defer th:src="@{/js/workspace-page/menu.js}" type="module"></script>
+
+    <script defer th:src="@{/js/workspace-page/components/modal-searcher/workspace-modal-searcher.js}"
+            type="module"></script>
+
+    <link rel="stylesheet" th:href="@{/css/inviteModal.css}"/>
+    <script defer th:src="@{/js/invite.js}" type="module"></script>
+    <link rel="stylesheet" th:href="@{/css/invite.css}"/>
+
+    <!-- message menu -->
+    <script defer th:src="@{/js/message_menu/message-icon-menu.js}" type="module"></script>
+    <link rel="stylesheet" th:href="@{/js/message_menu/message_menu.css}"/>
+
+    <!-- emoji -->
+    <!--    <script src="https://cdn.jsdelivr.net/npm/emoji-button@latest/dist/index.min.js"></script>-->
+    <script th:src="@{/js/emoji/index.min.js}"></script>
+    <script defer th:src="@{/js/emoji/attachEmoji.js}" type="module"></script>
+
+    <!-- edit messages inline -->
+    <link rel="stylesheet" th:href="@{/css/messagesInlineEdit.css}"/>
+    <script defer th:src="@{/js/messagesInlineEdit.js}" type="module"></script>
+
+    <!-- right slide panel -->
+    <script defer th:src="@{/js/right_slide_panel/right_panel.js}" type="module"></script>
+    <link rel="stylesheet" th:href="@{/js/right_slide_panel/right_panel.css}"/>
+
+    <!-- channel info -->
+    <script defer th:src="@{/js/channel_details/view_channel_info.js}" type="module"></script>
+    <link rel="stylesheet" th:href="@{/js/channel_details/view_channel_info.css}"/>
+
+    <!-- activities info -->
+    <script defer th:src="@{/js/activities/view_activities.js}" type="module"></script>
+
+    <!-- thread panel-->
+    <script defer th:src="@{/js/thread/thread-view.js}" type="module"></script>
+    <script defer th:src="@{/js/thread/thread-input-box.js}" type="module"></script>
+    <script defer th:src="@{/js/thread/thread-messages.js}" type="module"></script>
+    <link rel="stylesheet" th:href="@{/js/thread/thread-view.css}"/>
+
+    <!-- memberList -->
+    <link rel="stylesheet" th:href="@{/css/member-list.css}"/>
+    <script defer th:src="@{/js/member-list/member-list.js}" type="module"></script>
+
+    <script th:src="@{/js/push/push.js}"></script>
+    <script th:src="@{/js/push/push_notification.js}"></script>
+
+    <!--  direct message
+     <script defer th:src="@{/js/workspace-page/components/primary-view/direct-message.js}" type="module"></script>-->
+
+    <script src="/js/helper_functions.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!--     <link rel="stylesheet" th:href="@{/css/workspacePage.css}"/>
+        <link rel="stylesheet" th:href="@{/css/workspaceAddChannelModal.css}"/>
+        <link rel="stylesheet" th:href="@{/css/button.css}"/>
+        <script src="/js/displayDiv.js"></script> -->
+
+
+    <link rel="stylesheet" th:href="@{/js/workspace-page/workspace-page.css}"/>
+    <link rel="stylesheet" th:href="@{/js/workspace-page/workspace-page-old.css}"/>
+    <link rel="stylesheet" th:href="@{/js/workspace-page/workspace-add-channel-modal.css}"/>
+
+    <link rel="stylesheet" th:href="@{/js/workspace-page/components/modal-searcher/workspace-searcher-modal.css}"/>
+
+    <script defer th:src="@{/js/workspace-page/components/primary-view/share-message.js}" type="module"></script>
+    <link rel="stylesheet" th:href="@{/js/workspace-page/components/primary-view/share-message-modal.css}"/>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.min.js"
+            integrity="sha256-z4cKT3yF+afIn8eFXJc+nRpGtwcmNEClvf+ikgsZcRo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"
+            integrity="sha256-nkP8cj5xaTdWK/BsZl+57ZCE/Y/i4UNtbNTpgH+6Taw=" crossorigin="anonymous"></script>
+
+    <!--  Tab Icon by DV -->
+    <link rel="shortcut icon"
+          href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAzFBMVEVKFEyScpNLFU1cK16Mao1hMmOEX4WObZBWJFiQb5FZKFtNGE97VH1QHFJOGVBsQW5jNWV2TXdsQG1aKVxdLV9WI1dwRXGObI9pPGpTIFVPG1FfL2FSH1RVIld8VX1YJlpOGlBbK12RcZJMFk5iNGSBW4JmOGhgMGF3TniLaIx9Vn5lN2eFYYaNa45eLmB5UXtkN2ZUIVaGYodkNmVtQm9YJ1pRHVOHZImCXIN1THZgMWKDXoR9V392TniMaY1nOmmKZ4tpPWtXJVlvRHFqMc1IAAABCklEQVR4Xr3RxZLEIBSG0f9C3NPuPu7u/v7vNEE6dFdRM7s+i0sFvg0EO9X0/CQFeqfeCWwyh4gmCKgSwGJOlRCuWG5gMSKBrcTch03jvwD9Z9eFNcj4gcRj1EE2H5n7OaS93+lA7uXQPKo96kDt9aH4JnDUNS+xEEsLSmKCC0zFMoWY3RmUdBKSFCYDoHPmNCCCaw6DSTC2v8bnw+E9llHrCkBUHkvJbbz1hC4Tl+khWtDaHrQjGXAxH1CSEWwGzUJMH09ktKHkRPTCdBCEdfCKteItj6EDjDuHUvnBsKkO7EywIvr8+juofMNCnnTVUsCird6Gq99o80PkRFh6VcZgFafyYDDDbv0CWLgS6JWTyyIAAAAASUVORK5CYII="
+          sizes="16x16 32x32 48x48" type="image/png">
+    <!--  Icon Library by DV  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--  Voice messaging feature by DV  -->
+    <!--    <script src="../js/vavilov/innerJs/WebAudioRecorder.min.js"></script>-->
+    <!--    <script src="../js/vavilov/innerJs/voiceRecorder.js"></script>-->
+
+    <!-- channel info -->
+    <script defer th:src="@{/js/channel_details/view_channel_info.js}" type="module"></script>
+    <link rel="stylesheet" th:href="@{/js/channel_details/view_channel_info.css}"/>
+    <!-- channel-model -->
+    <script defer th:src="@{/js/channel_browse_modal/modal.js}" type="module"></script>
+    <link rel="stylesheet" th:href="@{/css/channelModal.css}"/>
+
+
+</head>
+
+<body class="supports_custom_scrollbar">
+
+<!--preloader-->
+<div id="preloader">
+    <div class="loadingio-spinner-reload-o6noz723evq">
+        <div class="ldio-k0qtnwvcnqi">
+            <div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Channel modal -->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" id="channelModal">
+    <button type="button" id="close_modal_channel" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times</span>
+    </button>
+    <div class="modal-dialog modal-lg" role="document">
+        <!--        <button type="button"  id="close_modal_channel" class="close" data-dismiss="modal" aria-label="Close">-->
+        <!--            <span aria-hidden="true">&times;</span>-->
+        <!--        </button>-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title">Browse Channels</h1>
+            </div>
+            <div class="modal-body">
+                <div class="p-channel-browser-control">
+                    <div class="input-group mb-3">
+                        <span class="icon"><i class="fa fa-search"></i></span>
+                        <input id="input-in" type="text" class="form-control">
+                    </div>
+                    <div class="dropdown-show-inline">
+                        <div class="dropdown show">
+                            <strong>Show:</strong>
+                            <select class="selectpicker" id="selectedChannels">
+                                <option class="all-channels active" value="all" selected>All channels</option>
+                                <option value="private">Private channels</option>
+                                <option value="archive">Archive channels</option>
+                            </select>
+                        </div>
+                        <div class="dropdown show">
+                            <strong>Sort:</strong>
+                            <select class="selectpicker" id="selectedSort">
+                                <option value="name" selected>Channel name</option>
+                                <option value="date">Creation date(newest first)</option>
+                                <option value="most">Members (most to fewest)</option>
+                                <option value="fewest">Members (fewest to most)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="channel-list"><br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Small modal -->
+<div class="modal fade bd-example-modal-sm" id="modal_1" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <img src="" id="modal_1_user_img" class="img-fluid rounded-top" alt="...">
+            <div class="container">
+                <button id="modal_1_user_profile_button" type="button" class="btn btn-link">Sasha Grey</button>
+            </div>
+            <div id="modal_1_user_status" class="container">
+                <!--                status-->
+                <button id="modal_1_set_status_btn" type="button" class="btn btn-link">Set a status</button>
+            </div>
+            <div id="modal_1_user_title" class="container">
+                <!--                title-->
+                <button id="modal_1_set_title_btn" type="button" class="btn btn-link">Add a title</button>
+            </div>
+            <div class="container-fluid">
+                <div class="row justify-content">
+                    <div class="col-6 py-2">
+                        <button type="button" id="modal_1_msg_button" class="btn btn-light btn-block btn-sm">
+                            Message
+                        </button>
+                    </div>
+                    <div class="col-6 py-2">
+                        <!--button type="button" class="btn btn-success btn-block btn-sm">Edit Profile</button-->
+
+                        <a href="#modal_2" type="button" id="modal_1_edit_profile_btn"
+                           class="btn btn-success btn-block btn-sm" data-user_id="">Edit Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Second modal window-->
+<div class="modal fade bd-example-modal-lg" id="modal_2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit your profile</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-8">
+                            <form>
+                                <div class="form-group">
+                                    <label for="first-name">First name</label>
+                                    <input type="text" class="form-control" id="first-name" placeholder="First name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name">Last name</label>
+                                    <input type="text" class="form-control" id="last-name" placeholder="Last name">
+                                </div>
+                                <!--                                <div class="form-group">-->
+                                <!--                                    <label for="full-name">Full name</label>-->
+                                <!--                                    <input type="text" class="form-control" id="full-name" placeholder="Full name">-->
+                                <!--                                </div>-->
+                                <div class="form-group">
+                                    <label for="display-name">Display name</label>
+                                    <input type="text" class="form-control" id="display-name"
+                                           placeholder="Display name">
+                                    <small id="display-name-help" class="form-text text-muted">This could be your first
+                                        name, or a nickname — however you’d like people to refer to you in Slack.
+                                    </small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="what-i-do">What I do</label>
+                                    <input type="text" class="form-control" id="what-i-do" placeholder="What I do">
+                                    <small id="what-i-do-help" class="form-text text-muted">Let people know what you do
+                                        at Java Mentoring.
+                                    </small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone-number">Phone number</label>
+                                    <input type="text" class="form-control" id="phone-number"
+                                           placeholder="(123) 555-5555">
+                                    <small id="phone-number-help" class="form-text text-muted">Enter a phone number.
+                                    </small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="time-zone">Time zone</label>
+                                    <select id="time-zone" class="form-control">
+                                        <option>Time zone</option>
+                                    </select>
+                                    <small id="time-zone-help" class="form-text text-muted">Your current time zone. Used
+                                        to send summary and notification emails, for times in your activity feeds, and
+                                        for reminders.
+                                    </small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="skype">Skype</label>
+                                    <input type="text" class="form-control" id="skype" placeholder="Skype">
+                                    <small id="skype-help" class="form-text text-muted">This will be displayed on your
+                                        profile.
+                                    </small>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-4">
+                            Profile photo
+                            <img src="" id="modal_2_user_img" class="img-fluid rounded" alt="...">
+                            <div class="pt-2">
+                                <!--                                <button type="button" class="btn btn-light btn-block">Upload an Image</button>-->
+                                <input type="button" class="btn btn-light btn-block" id="btnFileUpload"
+                                       value="Upload an Image"/>
+                                <span id="spnFilePath"></span>
+                                <input type="file" id="FileUpload1" style="display: none"/>
+                            </div>
+                            <div class="pt-2">
+                                <button type="button" class="btn btn-link btn-block">Remove photo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                <button id="user_edit_submit" type="button" class="btn btn-success" data-user_id="">Save changes
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- User menu modal-->
+<div class="menu-user-workspace popover"
+     style="position: absolute; left: 8px; top: 54px; outline: none; transition-duration: 80ms;">
+    <div>
+        <div class="c-menu">
+
+            <div>
+                <div class="c-menu__items_scroll" no-bootstrap="1">
+
+                    <div class="c-menu__items">
+
+                        <div class="p-classic_nav__team_menu__blurb">
+                            <span class="p-classic_nav__team_menu__blurb__icon c-avatar"
+                                  style="height: 36px; line-height: 36px; width: 36px;"><img class="c-avatar__image"
+                                                                                             src="https://ca.slack-edge.com/T2AEH901M-ULBABL4UU-g9d0172b2897-48"
+                                                                                             srcset="https://ca.slack-edge.com/T2AEH901M-ULBABL4UU-g9d0172b2897-72 2x"
+                                                                                             alt=""></span>
+                            <div class="p-classic_nav__team_menu__blurb__right">
+                                <div class="p-classic_nav__team_menu__blurb__name">Решетько Константин</div>
+                                <div class="p-classic_nav__team_menu__blurb__sub">Решетько Константин</div>
+                            </div>
+                        </div>
+                        <div class="c-menu_item__li">
+                            <button class="c-button-unstyled c-menu_item__button" type="button">
+                                <div class="c-menu_item__label">Set a status</div>
+                                <div class="c-menu_item__shortcut">Ctrl+Shift+Y</div>
+                            </button>
+                        </div>
+                        <div class="c-menu_item__li">
+                            <button class="c-button-unstyled c-menu_item__button" type="button">
+                                <div class="c-menu_item__label">Profile &amp; account</div>
+                            </button>
+                        </div>
+                        <div class="c-menu_item__li">
+                            <button class="c-button-unstyled c-menu_item__button" type="button">
+                                <div class="c-menu_item__label">Preferences</div>
+                            </button>
+                        </div>
+                        <div class="c-menu_item__li">
+                            <button class="c-button-unstyled c-menu_item__button" type="button">
+                                <div class="c-menu_item__label">Set yourself to <strong>away</strong></div>
+                            </button>
+                        </div>
+                        <div class="c-menu_item__li">
+                            <button class="c-button-unstyled c-menu_item__button" type="button">
+                                <div class="c-menu_item__label">Help &amp; feedback</div>
+                            </button>
+                        </div>
+                        <div aria-hidden="true"
+                             class="c-menu_separator__li c-menu_separator__li--no_first_child c-menu_separator__li--no_last_child">
+                            <hr class="c-menu_separator__separator">
+                        </div>
+                        <div>
+                            <div class="p-classic_nav__team_menu__blurb">
+                                <i class="p-classic_nav__team_menu__blurb__icon" aria-hidden="true"
+                                   style="height: 36px; width: 36px; min-width: 36px; font-size: 20px; line-height: 36px; white-space: nowrap; background-image: url(&quot;https://avatars.slack-edge.com/2019-04-26/608315739666_d6dcde1585520bcb3ef9_88.png&quot;);"></i>
+                                <div class="p-classic_nav__team_menu__blurb__right">
+                                    <div class="p-classic_nav__team_menu__blurb__name">Java Mentoring</div>
+                                    <div class="p-classic_nav__team_menu__blurb__sub">javamentor.slack.com</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="p-classic_nav__team_menu__blurb_plan">
+                            Your
+                            workspace is currently on the free version of Slack.
+                            <button target="_blank" path="pricing?ui_step=61&amp;ui_element=5"
+                                    class="c-link--button bold"
+                                    type="button">See upgrade options
+                            </button>
+                        </p>
+                        <div aria-hidden="true"
+                             class="c-menu_separator__li c-menu_separator__li--no_first_child c-menu_separator__li--no_last_child">
+                            <hr class="c-menu_separator__separator">
+                        </div>
+                        <div id="invite-from-menu-user-workspace" class="c-menu_item__li">
+                            <button class="c-button-unstyled c-menu_item__button" type="button">
+                                <div class="c-menu_item__label">Invite people</div>
+                            </button>
+                        </div>
+                        <div class="c-menu_item__li" data-qa="sign-out-wrapper">
+                            <a href="/logout">
+                                <button class="c-button-unstyled c-menu_item__button" type="button">
+                                    <div class="c-menu_item__label">
+                                        Sign out of
+                                        <strong>
+                                            Java Mentoring
+                                        </strong>
+                                    </div>
+                                </button>
+                            </a>
+                        </div>
+                        <div aria-hidden="true"
+                             class="c-menu_separator__li c-menu_separator__li--no_first_child c-menu_separator__li--no_last_child">
+                            <hr class="c-menu_separator__separator">
+                        </div>
+                        <div role="presentation" class="c-submenu" id="switchWorkspaceMenuBar">
+                            <div class="c-menu_item__li">
+                                <button class="c-button-unstyled c-menu_item__button c-menu_item__button--with_submenu"
+                                        type="button" id="switchWorkspaceButton">
+                                    <div class="c-menu_item__label">Switch workspaces</div>
+                                    <i class="fas fa-angle-right c-icon c-menu_item__submenu-indicator c-icon--chevron-right"
+                                       aria-hidden="true">
+                                    </i></button>
+                            </div>
+                        </div>
+                        <div class="c-menu_item__li" data-qa="menu_item_button-wrapper">
+                            <button class="c-button-unstyled c-menu_item__button" type="button"
+                                    id="menu-584f42f2-4610-444e-94e9-a0b49637aa74-15" data-qa="menu_item_button"
+                                    role="menuitem" tabindex="-1">
+                                <div class="c-menu_item__label">Sign in to another workspace</div>
+                            </button>
+                        </div>
+                        <div aria-hidden="true"
+                             class="c-menu_separator__li c-menu_separator__li--no_first_child c-menu_separator__li--no_last_child">
+                            <hr class="c-menu_separator__separator">
+                        </div>
+                        <div class="c-menu_item__li" data-qa="menu_item_button-wrapper"><a target="_blank"
+                                                                                           class="c-link c-button-unstyled c-menu_item__button"
+                                                                                           id="menu-584f42f2-4610-444e-94e9-a0b49637aa74-17"
+                                                                                           data-qa="menu_item_button"
+                                                                                           role="menuitem" tabindex="-1"
+                                                                                           href="https://javamentor.slack.com/ssb/redirect"
+                                                                                           rel="noopener noreferrer">
+                            <div class="c-menu_item__label">Open the Slack App</div>
+                            <div class="c-menu_item__link_icon" data-qa="menu_item_link_icon" role="presentation"><i
+                                    class="c-icon c-menu_item__link-indicator c-icon--external-link c-icon--inherit"
+                                    type="external-link" data-qa="menu_item_link_indicator" role="presentation"
+                                    aria-hidden="true"></i></div>
+                        </a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Switch Workspace Modal  -->
+<div role="presentation" id="switchWorkspacesWindow" class="switchWorkspacesWindow c-submenu__container"
+     style="left: 310px; top: 530px; z-index: 1000">
+    <div class="c-menu">
+        <div class="c-menu__items_scroller">
+            <div class="c-menu__items" role="menu" tabindex="-1" no-bootstrap="1" id="workspaces">
+                <div class="c-menu_item__header"> Your other workspaces</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Invite modal-->
+<div id="invitesModal" class="invites-modal">
+    <div class="form_container modal-guts">
+        <div class="workspace_form">
+            <div class="title">
+                <p>
+                    Workspaces with paid plans can also invite guests, like contractors, vendors,
+                    or clients. See pricing plans
+                </p>
+            </div>
+            <h1 id="workspace_name_label" class="large_bottom_margin">Invite people to test-channel</h1>
+            <div class="form_flex">
+
+                <ul class="nav nav-tabs d-none" id="modal_tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                           aria-controls="home" aria-selected="true">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="adding-tab" data-toggle="tab" href="#adding" role="tab"
+                           aria-controls="adding" aria-selected="false">Adding</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <form id="input_form" class="confirm-form" action="/tada">
+                            <span id="table">
+                                <table class="table_invite">
+                                    <tr><td>Email Address</td><td>Name (optional)</td><td></td></tr>
+                                    <tr class="content-form-">
+                                        <td><input type="text" id="inviteEmail_" class="confirm_input"
+                                                   placeholder="name@example.com" value=""></td>
+                                        <td><input type="text" id="inviteName_" class="confirm_input confirm_input_name"
+                                                   placeholder="name" value=""></td>
+                                        <td style="visibility: hidden"><span class="btn delete">X</span></td>
+                                    </tr>
+                                    <tr class="table_invite_modal">
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </span>
+
+                            <span class="add_row_invites">
+                                <button class="plus link_button" id="addInviteModal"
+                                        type="button">&#8853 Add another</button>
+                                    or
+                                <button class="link_button many_at_once" type="button">and many at once</button>
+                            </span>
+                            <div class="p-invite_channel_picker">
+                                <div>
+                                    <label for="channel_picker_dropdown_section">
+                                        <span class="c-label_text">Default Channels</span>
+                                    </label>
+                                    <div id="channel_picker_dropdown_section">
+                                <span class="p-invites_channel_picker_note">
+                                    <span>New
+                                        <strong>members</strong>
+                                        will automatically join <strong>#general</strong>,
+                                        <strong>#random</strong>, and
+                                        <strong>#test</strong>
+                                        channels.</span>
+                                    <button class="link_button" type="button">Edit/add
+                                    </button>
+                                </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="adding" role="tabpanel" aria-labelledby="adding-tab">
+                        <form>
+                            <table>
+                                <tr>
+                                    <td>Enter multiple email addresses</td>
+                                </tr>
+                                <tr>
+                                    <td><textarea class="inviteEmails_" id="inviteEmails_"></textarea></td>
+                                </tr>
+                            </table>
+                        </form>
+                        <button id="back_modal_button" class="btn btn-secondary back_modal_button" type="button">Back
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="p-invite_members_form">
+                        <span>
+                            <button class="c-link--button">
+                                <span>
+                                    Share invite link
+                                </span>
+                            </button>
+                        </span>
+                <button id="inviteSend" class="invitation_button" type="button">Send Invitations</button>
+            </div>
+            <hr class="hr-footer">
+            <div class="p-footer">
+                <button class="pending_invites_link c-link--button" type="button">
+                    See pending and accepted invites
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<button id="invitesModalClose" class="invites-modal-close" type="button">
+    X
+</button>
+
+<!--Invite answer modal-->
+<div class="modal" id="invitesAnswerModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header" id="invitesAnswerModalHeader">
+                <h1>Couldn’t send request</h1>
+            </div>
+
+            <div class="modal-body text-center" id="invitesAnswerModalBody">
+                <table class="table table-striped" id="invitesAnswerTable">
+                    <thead>
+                    <tr>
+                        <th scope="col" id="invitesModalTableTh1">Email</th>
+                        <th scope="col" id="invitesModalTableTh2">What was wrong</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="modal-footer" id="invitesAnswerModalFooter">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Share message MODAL -->
+<div class="modal fade" id="shareMessageModal" tabindex="-1" role="dialog" aria-labelledby="shareMessageModal"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="shareMessageModalTitle">Share this message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="share-message-modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" id="copy_link_message_button_id">Copy link</button>
+                <button type="button" class="btn btn-primary" id="share_message_submit_button_id">Share</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="p-client_container">
+    <div class="p-client">
+        <div class="p-workspace">
+            <div class="p-workspace__top_nav">
+                <div class="p-classic_nav">
+                    <div class="p-classic_nav__team_header">
+                        <div class="p-classic_nav__team_header__content">
+                            <div class="p-classic_nav__team_header__team">
+                                <div class="p-classic_nav__team_header__team__name">
+                                    Some Team<!--                                                           Team Name-->
+                                </div>
+                                <!--                                <button class="p-classic_nav__team_header__team__icon_button">-->
+                                <!--                                    <i class="p-classic_nav__team_header__team__icon">-->
+                                <!--                                        <i class="fas fa-angle-down"></i>-->
+                                <!--                                    </i>-->
+                                <!--                                </button>-->
+                                <div class="p-classic_nav__team_header__team__dnd_container">
+                                    <button id="bellId" class="p-classic_nav__team_header__team__dnd">
+                                        <i class="p-classic_nav__team_header__team__dnd__bell_icon">
+                                            🔔 bell
+                                        </i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="p-classic_nav__team_header__user">
+                                <i class="p-classic_nav__team_header__user__presence">
+                                    ●
+                                </i>
+                                <span class="p-classic_nav__team_header__user__name">
+                                    <span class="p-classic_nav__team_header__user__name__truncate">Some Username</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-classic_nav__channel_header">
+                        <div class="p-classic_nav__model__title">
+                            <div class="p-classic_nav__model__title__name">
+                                <button class="p-classic_nav__model__title__name__button">
+                                    <i class="p-classic_nav__model__title__name__hash_icon">
+                                        #</i>
+                                    <span class="p-classic_nav__model__title__info__name" id="chanelName"></span>
+                                </button>
+                            </div>
+                            <div class="p-classic_nav__model__title__info">
+                                <button class="p-classic_nav__model__title__info__star">
+                                    <i class="material-icons" style="font-size: 18px; color: orange;">star</i>
+                                </button>
+                                <span class="p-classic_nav__model__title__info__sep">|</span>
+                                <button class="p-classic_nav__model__title__info__members">
+                                    <i class="material-icons">people</i>
+                                    <i id="peopleInChat"></i>
+                                </button>
+                                <span class="p-classic_nav__model__title__info__sep">|</span>
+                                <button class="p-classic_nav__model__title__info__pins">
+                                    <i class="material-icons">flag</i>
+                                    <i id="flaggedItems"></i>
+                                </button>
+                                <span class="p-classic_nav__model__title__info__sep">|</span>
+                                <div class="p-classic_nav__model__title__info__item">
+                                    <!--                                    <div id="topic_edit_block" class="p-classic_nav__model__title__info__topic__text">-->
+                                    <!--                                        <span id="topic_edit_button" class="p-classic_nav__model__title__info__topic__content">✎</span>-->
+                                    <!--                                    </div>-->
+                                    <div id="topic_string_block" class="p-classic_nav__model__title__info__topic__text">
+                                        <span id="topic_string"
+                                              class="p-classic_nav__model__title__info__topic__content"></span>
+                                        <button id="topic_button" style="display: none;"
+                                                class="p-classic_nav__model__title__info__topic__edit">Edit
+                                        </button>
+                                    </div>
+                                </div>
+                                <!--<span class="p-classic_nav__model__title__info__sep">|</span>-->
+                            </div>
+                        </div>
+                        <div class="p-classic_nav__model__buttons">
+                            <button class="iconsVD-sideBar" id="phoneButton">
+                                <i class="material-icons buttons-TopBar">phone</i>
+                            </button>
+                            <button class="iconsVD-sideBar" id="infoButton">
+                                <i class="material-icons buttons-TopBar">info</i>
+                            </button>
+                            <button class="iconsVD-sideBar" id="settingsMenuButton">
+                                <i class="material-icons buttons-TopBar">settings</i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-classic_nav__right_header">
+                        <button class="p-classic_nav__right__search" id="buttonSearcher" data-toggle="modal"
+                                data-target="#modalSearcher">
+                            <i class="p-classic_nav__right__search__icon">🔍</i>
+                            <span class="p-classic_nav__right__search__placeholder">Search</span>
+                        </button>
+                        <div class="p-classic_nav__search_small_divider"></div>
+                        <button class="p-classic_nav__right__button">
+                            <i class="p-classic_nav__right__button__icon"></i>
+                        </button>
+                        <div class="p-classic_nav__right__activity__container">
+                            <button class="p-classic_nav__right__activity__button">
+                                <i class="p-classic_nav__right__activity__icon">@</i>
+                            </button>
+                        </div>
+                        <button class="p-classic_nav__right__star__button">
+                            <i style="font-size: 18px; color: orange;">☆</i>
+                        </button>
+                        <button class="p-classic_nav__right__more_items">
+                            <i class="p-classic_nav__right__more_items__icon">⋮</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="p-workspace__sidebar">
+                <div class="p-workspace__channel_sidebar">
+                    <nav class="p-channel_sidebar">
+                        <div class="p-channel_sidebar__navigation_bar">
+                            <button class="p-channel_sidebar__jumper" id="sidebar_search_button" data-toggle="modal"
+                                    data-target="#modalSearcher">
+                                <div class="p-channel_sidebar__jumper_left">
+                                    <i class="material-icons"
+                                       style="margin: 2px; font-size: 20px; vertical-align: middle;">search</i>
+                                    Jump to...
+                                </div>
+                                <span class="p-channel_sidebar__jumper_keys">Ctrl+K</span>
+                            </button>
+                        </div>
+                        <div class="p-channel_sidebar__list">
+                            <div style="overflow: visible; height: 0; width: 0;">
+                                <div class="p-channel_sidebar__list__scrollbar">
+                                    <div class="p-channel_sidebar__list__scrollbar__hider">
+                                        <div class="p-channel_sidebar__list__scrollbar__child">
+                                            <div class="p-channel_sidebar__list__presentation-1"></div>
+                                            <div class="p-channel_sidebar__channel">
+                                                <button class="p-channel_sidebar__list__threads__button
+                                                                p-channel_sidebar__name_button">
+                                                    <i class="p-channel_sidebar__list__threads__button__icon">≛</i>
+                                                    &nbsp;
+                                                    <span class="p-channel_sidebar__name-1">Threads</span>
+                                                </button>
+                                            </div>
+
+                                            <div class="p-channel_sidebar__list__presentation-2"></div>
+                                            <div class="p-channel_sidebar__list__channels">
+                                                <div class="p-channel_sidebar__section_heading">
+                                                    <button class="p-channel_sidebar__channels__button"
+                                                            id="btnChannel-info_1" data-toggle="modal"
+                                                            data-target="#channelModal">Channels
+                                                    </button>
+                                                    <div class="p-channel_sidebar__section_heading_right">
+                                                        <button class="p-channel_sidebar__section_heading_plus"
+                                                                data-toggle="modal" data-target="#addChannelModal"
+                                                                id="addChannelButton">✚
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="p-channel_sidebar__list__presentation-3"></div>
+                                            <!--channels list-->
+                                            <div class="p-channel_sidebar__channels__list"
+                                                 id="id-channel_sidebar__channels__list"></div>
+                                            <div class="p-channel_sidebar__list__presentation-4"></div>
+                                            <div class="p-channel_sidebar__list__presentation-2"></div>
+                                            <div class="p-channel_sidebar__direct-messages">
+                                                <div class="p-channel_sidebar__section_heading">
+                                                    <button class="p-channel_sidebar__section_heading_label__button">
+                                                        Direct Messages
+                                                    </button>
+                                                    <div class="p-channel_sidebar__section_heading_right">
+                                                        <button class="p-channel_sidebar__section_heading_plus"
+                                                                data-toggle="modal" data-target="#addDirectMessageModal"
+                                                                id="addDirectMessage">✚
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="p-channel_sidebar__list__presentation-3"></div>
+                                            <!--                                            <div class="p-channel_sidebar__direct-messages__container">-->
+                                            <!--                                                <div class="p-channel_sidebar__close_container">-->
+                                            <!--                                                    <button class="p-channel_sidebar__name_button">-->
+                                            <!--                                                        <i class="p-channel_sidebar__channel_icon_circle">●</i>-->
+                                            <!--                                                        <span class="p-channel_sidebar__name-3">-->
+                                            <!--                                                            <span>Some username</span>-->
+                                            <!--                                                        </span>-->
+                                            <!--                                                    </button>-->
+                                            <!--                                                    <button class="p-channel_sidebar__close">-->
+                                            <!--                                                        <i class="p-channel_sidebar__close__icon">✖</i>-->
+                                            <!--                                                    </button>-->
+                                            <!--                                                </div>-->
+                                            <!--                                            </div>-->
+                                            <!--ЛИЧКА!!!--><!--ЛИЧКА!!!--><!--ЛИЧКА!!!--><!--ЛИЧКА!!!--><!--ЛИЧКА!!!-->
+                                            <!--ЛИЧКА!!!-->
+
+                                            <div class="p-channel_sidebar__direct-messages__container"
+                                                 id="direct-messages__container_id">
+                                            </div>
+
+                                            <div class="p-channel_sidebar__list__presentation-2"></div>
+                                            <div class="p-channel_sidebar__invite_people">
+                                                <div class="p-channel_sidebar__close_container">
+                                                    <button class="p-channel_sidebar__invite_people__button"
+                                                            id="invite-button">
+                                                        <span class="p-channel_sidebar__name-2">✚ Invite people</span>
+                                                    </button>
+                                                    <button class="p-channel_sidebar__close">
+                                                        <i class="p-channel_sidebar__close__icon">✖</i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="p-channel_sidebar__list__presentation-2"></div>
+                                            <div class="p-channel_sidebar__app">
+
+                                                <div class="p-channel_sidebar__section_heading">
+                                                    <button class="p-channel_sidebar__section_heading_label__button">
+                                                        App
+                                                    </button>
+                                                    <div class="p-channel_sidebar__section_heading_right">
+                                                        <button class="p-channel_sidebar__section_heading_plus"
+                                                                data-toggle="modal" data-target="#appsModal"
+                                                                id="addAppsButton">✚
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="p-channel_sidebar__channels__list"
+                                                 id="id-app_sidebar__apps__list"></div>
+                                            <div class="p-channel_sidebar__channels__list"
+                                                 id="id-google-bot"></div>
+                                            <div class="bot-representation" id="bot_representation"></div>
+                                            <div class="p-channel_sidebar__list__presentation-4"></div>
+                                        </div>
+                                    </div>
+                                    <div class="p-channel_sidebar__list__scrollbar__track">
+                                        <div class="p-channel_sidebar__list__scrollbar__bar"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="resize-triggers">
+                                <div class="expand-trigger">
+                                    <div style="width: 221px; height: 868px;"></div>
+                                </div>
+                                <div class="contract-trigger"></div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="p-workspace__primary_view" id="all-message-wrapper">
+                <div class="p-workspace__primary_view_contents" id="workspaceContent">
+                    <div class="p-workspace__primary_view_body">
+                        <div class="p-message_pane--classic-nav" id="all-messages">
+
+                            <!--MESSAGE CONTENT EXAMPLE
+                            <div class="p-message_pane&#45;&#45;classic-nav__app">
+                                <div class="c-virtual_list__container">
+                                    <div class="c-virtual_list__item">
+
+                                        <div class="c-message&#45;&#45;light">
+                                            <div class="c-message__gutter&#45;&#45;feature_sonic_inputs">
+                                                <button class="c-message__avatar__button">
+                                                    <img class="c-avatar__image">
+                                                </button>
+                                            </div>
+                                            <div class="c-message__content&#45;&#45;feature_sonic_inputs">
+                                                <div class="c-message__content_header">
+                                                    <span class="c-message__sender">
+                                                        <button class="c-message__sender_link">
+                                                            Some user
+                                                        </button>
+                                                    </span>
+                                                    <a class="c-timestamp&#45;&#45;static">
+                                                        <span class="c-timestamp__label">
+                                                            11:04 PM
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <span class="c-message__body">
+                                                    some message
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>-->
+
+                            <div class="resize-triggers">
+                                <div class="expand-trigger">
+                                    <div style="width: 1056px; height: 747px;"></div>
+                                </div>
+                                <div class="contract-trigger"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--                    <footer class="p-workspace__primary_view_footer">-->
+                    <!--                        <div class="p-message_pane_input">-->
+                    <!--                            <div class="p-message_pane_input_inner">-->
+                    <!--                                <div class="p-workspace__input">-->
+                    <!--                                    <div class="menu" id="menu">-->
+                    <!--                                    </div>-->
+                    <!--                                    <div class="p-message_input_field">-->
+                    <!--                                        <div class="ql-buttons">-->
+                    <!--                                            <button class="c-texty_input__button&#45;&#45;emoji">-->
+                    <!--                                                <i class="c-icon&#45;&#45;smile-o">😊</i>-->
+                    <!--                                            </button>-->
+                    <!--                                            <button class="c-texty_input__button" id="showAssociatedUsers">-->
+                    <!--                                                <i class="c-icon&#45;&#45;mentions">@</i>-->
+                    <!--                                            </button>-->
+                    <!--                                            <div class="associatedUserList" id="associatedUserList">-->
+                    <!--                                                <form>-->
+                    <!--                                                    <select class="associatedUserListSelect"-->
+                    <!--                                                            id="associatedUserListSelect" multiple-->
+                    <!--                                                            name="usersList"></select>-->
+                    <!--                                                </form>-->
+                    <!--                                            </div>-->
+                    <!--                                        </div>-->
+                    <!--                                        <div class="ql-editor">-->
+                    <!--                                            <form id="form_message">-->
+                    <!--                                                <input class="ql-editor__input-field" id="form_message_input" placeholder="Message #p_some-channel" type="text"/>-->
+                    <!--                                            </form>-->
+                    <!--                                        </div>-->
+                    <!--                                    </div>-->
+
+                    <!--<<<<<<< HEAD-->
+                    <!--                    <footer class="p-workspace__primary_view_footer">-->
+                    <!--                        <div class="p-message_pane_input">-->
+                    <!--                            <div class="p-message_pane_input_inner">-->
+                    <!--                                <div class="p-workspace__input">-->
+                    <!--                                    <div class="menu" id="menu">-->
+                    <!--                                    </div>-->
+                    <!--                                    <div class="p-message_input_field">-->
+                    <!--                                        <div class="ql-buttons">-->
+                    <!--                                            <button class="c-texty_input__button&#45;&#45;emoji">-->
+                    <!--                                                <i class="c-icon&#45;&#45;smile-o">😊</i>-->
+                    <!--                                            </button>-->
+                    <!--                                            <button class="c-texty_input__button" id="showAssociatedUsers">-->
+                    <!--                                                <i class="c-icon&#45;&#45;mentions">@</i>-->
+                    <!--                                            </button>-->
+                    <!--                                            <div class="associatedUserList" id="associatedUserList">-->
+                    <!--                                                <form>-->
+                    <!--                                                    <select class="associatedUserListSelect"-->
+                    <!--                                                            id="associatedUserListSelect" multiple-->
+                    <!--                                                            name="usersList"></select>-->
+                    <!--                                                </form>-->
+                    <!--                                            </div>-->
+                    <!--                                        </div>-->
+                    <!--                                        <div class="ql-editor">-->
+                    <!--                                            <form id="form_message">-->
+                    <!--                                                <input class="ql-editor__input-field" id="form_message_input" placeholder="Message #p_some-channel" type="text"/>-->
+                    <!--                                            </form>-->
+                    <!--                                        </div>-->
+                    <!--                                    </div>-->
+                    <!--                                    <button class="p-message_input_file_button">-->
+                    <!--                                        <i class="c-icon&#45;&#45;paperclip">📎</i>-->
+                    <!--                                        <input type="file" style="display:none" id="fileDialog"/>-->
+                    <!--                                    </button>-->
+                    <!--=======-->
+                    <!--&lt;!&ndash;                                    <button class="p-message_input_file_button">&ndash;&gt;-->
+                    <!--&lt;!&ndash;                                        <i class="c-icon&#45;&#45;paperclip">📎</i>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                                    </button>&ndash;&gt;-->
+                    <!--&gt;>>>>>> dev-->
+
+                    <!--                                </div>-->
+
+                    <!--                                <div class="p-notification_bar">-->
+                    <!--                                    <div class="p-notification_bar__section&#45;&#45;left"></div>-->
+                    <!--                                    <div class="p-notification_bar__section&#45;&#45;right">-->
+                    <!--                                        <span class="p-notification_bar__formatting"><b>*bold*</b> <i>_italics_</i></span>-->
+                    <!--                                    </div>-->
+                    <!--                                </div>-->
+
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </footer>-->
+
+                </div>
+            </div>
+
+            <div class="p-workspace__secondary_view">
+                <div class="p-workspace__secondary_view_contents">
+                    <div class="p-flexpane__channel_details">
+                        <div class="p-flexpane_header">
+                            <div class="p-flexpane_header__primary">
+                                <div class="p-flexpane_header__primary_content">
+                                    <div class="p-flexpane__title_container">About this channel</div>
+                                </div>
+                                <button class="p-flexpane_header__control__button">
+                                    <i class="c-icon--times">✖</i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-flexpane__body">
+                            <div class="p-flexpane__inside_body">
+                                <div class="p-flexpane__inside_body-scrollbar--hidden">
+                                    <div class="p-flexpane__inside_body-scrollbar__hider">
+                                        <div class="p-flexpane__inside_body-scrollbar__child">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-workspace__footer">
+                <footer class="p-workspace__primary_view_footer">
+
+                    <div style="margin: 5px 10px 5px 10px; height: 90%; border: 1px solid gray; border-radius: 8px;
+                        position: relative;">
+                        <div class="p-message_pane_input p-message_input_field" style="padding-top: 10px; bottom: 0;
+                        height: min-content;
+                        align-content: center;
+                        border-top-left-radius: 8px;
+                        border-top-right-radius: 8px;">
+                            <form id="form_message" style="height: 100%; width: 100%; text-align: center;">
+                                <div class="associatedUserList" id="associatedUserList">
+                                    <select class="associatedUserListSelect"
+                                            id="associatedUserListSelect" multiple
+                                            name="usersList">
+                                    </select>
+                                </div>
+                                <div class="slashCommandList" id="slashCommandList">
+                                    <select class="slashCommandSelect"
+                                            id="slashCommandSelect"
+                                            name="slashCommand" size="10">
+                                    </select>
+                                </div>
+                                <input class="ql-editor__input-field" id="form_message_input"
+                                       placeholder="Динам конт" minlength="1" maxlength="1200"
+                                       type="text" autocomplete="off"/>
+                                <div id="audio"></div>
+                            </form>
+                        </div>
+                        <div name="attachedFiles">
+                            <span id="attached_file"></span>
+                            <input type="file" id="file_selector" style="display: none"/>
+
+                            <ol id="inputMe"></ol>
+                            <span id="attached_voiceMessage"></span>
+                            <input type="file" id="vm_selector" style="display: none"/></div>
+                        <div class="p-notification_bar"
+                             style="height: min-content; width: 100%; position: absolute; bottom: 0; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;">
+                            <button id="attach_file" class="iconsVD-messageBox" style="margin-left: 10px;">
+                                <i class="material-icons buttons-MessageBox">attach_file</i>
+                            </button>
+                            <button id="inputEmojiButton" class="iconsVD-messageBox">
+                                <i class="material-icons buttons-MessageBox">mood</i>
+                            </button>
+                            <button id="showAssociatedUsers" class="iconsVD-messageBox">
+                                <i class="material-icons buttons-MessageBox">share</i>
+                            </button>
+                            <button id="voiceMessageBtn" class="iconsVD-messageBox VoiceMessageButton"
+                                    data-toggle="modal" data-target=".bd-example-modalVoice-sm"
+                                    style="align-items: center">
+                                <i class="material-icons buttons-MessageBox">mic_none</i>
+                            </button>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="settingsList" id="settingsList">
+    <div>
+        <div class="settingsDiv">
+            <button id="jumpToDate" class="settingsButton1" type="button">
+                <span class="settingsText">Jump to date...</span>
+            </button>
+            <button class="settingsButton" data-toggle="modal" data-target="#addPeopleToChannelModal" type="button">
+                <span class="settingsText">Add people to channel</span>
+            </button>
+            <button id="channelDetails" class="settingsButton" type="button"><span class="settingsText">View channel details</span>
+            </button>
+            <button id="copyChannelName" class="settingsButton" type="button"><span class="settingsText">Copy channel name</span>
+            </button>
+            <button class="settingsButton" type="button"><span class="settingsText">Manage posting permissions</span>
+            </button>
+            <button class="settingsButton2" type="button" data-toggle="modal" data-target="#additionalOptionsModal"
+                    id="additionalOptionsButton"><span class="settingsText">Additional options</span></button>
+        </div>
+
+        <div class="settingsDiv">
+            <button class="settingsButton3" type="button" data-toggle="modal"
+                    data-target="#notificationPreferenceModal"><span class="settingsText">Notification preference</span>
+            </button>
+            <button id="muteChannel" class="settingsButton4" type="button"><span
+                    class="settingsText">Mute channel</span></button>
+        </div>
+        <button class="settingsButton5" type="button" data-toggle="modal" data-target="#appsModal"><span
+                class="settingsText">Add app</span></button>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="addPeopleToChannelModal" tabindex="-1" role="dialog"
+     aria-labelledby="addPeopleToChannelModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addPeopleToChannelModalLabel">Add people</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="ui-widget">
+                    <label for="tags"></label>
+                    <input size="50" id="tags" type="search" placeholder="Yian, @steve, @usergroup, name@example.com"
+                           autocomplete='off'>
+                </div>
+                <p class="text-center">To add a teammate who’s not on Slack, you’ll need to invite them first.</p>
+                <button style="float: right" id='addBtn' type="button" class="btn btn-success" data-dismiss="modal"
+                        disabled>Add
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="notificationPreferenceModal" tabindex="-1" role="dialog"
+     aria-labelledby="notificationPreferenceModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="notificationPreferenceModalLabel">Notifications</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="/image/svg/alert-triangle.svg" class="text-warning" alt="Alert" width="32" height="32"
+                     title="Bootstrap"><br>
+                <strong>Desktop notifications are disabled</strong>
+                <p>To set your notifications for this channel, you’ll need to enable desktop notifications first.</p>
+                <button type="button" class="btn btn-success">Enable Notifications</button>
+            </div>
+            <!--            <div class="modal-footer">-->
+            <!--                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+            <!--                <button type="button" class="btn btn-primary">Save changes</button>-->
+            <!--            </div>-->
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bd-example-modalVoice-sm" id="mySmallModalLabelVoice" tabindex="-1" role="dialog"
+     aria-labelledby="mySmallModalLabelVoice" aria-hidden="true" style="background-color:transparent">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <b align="center">Начать запись</b>
+            <button id="recordVoiceButton">Start</button>
+            <button id="stopRecordVoiceButton">Stop</button>
+        </div>
+    </div>
+</div>
+
+<div class="additionalOptions" id="additionalOptions">
+    <div align="center" class="additionalOptionsHeader" id="additionalOptionsHeader">
+        <h1 class="additionalOptionsHeaderSpan" id="additionalOptionsHeaderSpan">Additional options for </h1>
+        <button class="additionalOptionsCloseButton"><span aria-hidden="true"
+                                                           id="additionalOptionsCloseButton">&times;</span></button>
+    </div>
+    <br>
+    <br>
+    <div class="col-md-4 justify-content-center mx-auto">
+        <div>
+            <div class="formButton">
+                <button class="additionalOptionsButton" id="exampleLink1"><span><b>Archive this channel</b>
+                <br>If you don’t think it will be used anymore and you want to clean up, archive it. The channel can be unarchived later (but everyone will have been removed).</span>
+                </button>
+            </div>
+            <div>
+                <button class="additionalOptionsButton" id="exampleLink3"><span><b>Share with another organization</b>
+                <br>In a shared channel, people from two separate organizations can send messages, share files, and work together in Slack. Learn more</span>
+                </button>
+            </div>
+            <div>
+                <button class="additionalOptionsButton" id="exampleLink2"><span><b>Set the channel description</b>
+                <br>Channel descriptions are especially useful to new members choosing which conversations to join.</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="archivingChannels" id="archivingChannels">
+    <div align="center" class="additionalOptionsHeader" id="archivingChannelsHeader">
+        <button class="archivingModalLeftButton"><span aria-hidden="true" id="archivingModalLeftButton">&larr;</span>
+        </button>
+        <h1 class="additionalOptionsHeaderSpan" id="archivingChannelsHeaderSpan">Archive #</h1>
+        <button class="additionalOptionsCloseButton"><span aria-hidden="true"
+                                                           id="archivingChannelsCloseButton">&times;</span></button>
+    </div>
+    <br>
+    <br>
+    <div class="col-md-4 justify-content-center mx-auto">
+        <form id="archivingForm">
+            <div>
+                <p class="archivingText">Archiving is useful if you don’t think you’ll need this channel any longer.
+                    Here’s what will happen when you archive this channel:</p>
+                <ul class="archivingChannelsUl">
+                    <li class="archivingText">No one will be able to send messages to it</li>
+                    <li class="archivingText">Apps installed in this channel will be disabled</li>
+                    <li class="archivingText">A message will be posted that you archived the channel</li>
+                </ul>
+                <p class="archivingText">Messages from archived channels will still show up in search and archives, the
+                    same way they do today. You can always un-archive an archived channel later, if you need it
+                    again.</p>
+            </div>
+            <br>
+            <div class="form-group row align-items-end">
+                <button type="button" class="btn btn-light archiveButtons" id="archivingCancel">Cancel</button>
+                <button type="submit" class="btn btn-success archiveButtons" id="archivingSubmit">Yes, archive the
+                    channel
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--Apps Modal-->
+<div class="modal fade btn-block" id="appsModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+
+
+        <div class="modal-content modal-lg"
+             tabindex="-1" role="dialog" aria-label="Browse Apps">
+
+            <div class="modal-header modal-lg">
+                <div class="p-classic_nav__model__title__info">
+                    <a target="_blank"
+                       class="c-link c-button-unstyled p-apps_browser_links__link"
+                       data-qa="apps_browser_manage_apps"
+                       href="https://javamentor.slack.com/apps/manage?utm_source=in-prod&amp;utm_medium=inprod-link_manage_apps-index-click"
+                       rel="noopener noreferrer">
+                        Manage apps...
+                    </a>
+                </div>
+                <button class="c-dialog__close" type="button" data-dismiss="modal" aria-label="Close">
+                    &times;
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="contentContainer">
+
+                    <div class="container">
+                        <div class="p-apps_browser" data-qa="apps_browser">
+                            <div class="p-apps_browser__filter_container">
+                                <div class="p-classic_nav__model__title__name" data-qa="apps_browser__header">
+                                    <h2>Browse Apps</h2>
+                                </div>
+                                <button style="margin-left: 52%;" class="btn btn-outline-dark"
+                                        type="button " data-qa="apps_browser__app_directory_button">View App Directory
+                                </button>
+
+                                <div class="form-inline" data-qa="apps_browser__filter_input" role="presentation"><i
+                                        class="c-icon nudge_top_1 c-icon--search-medium" type="search_medium"
+                                        aria-hidden="true"></i><input class="c-filter_input__input btn-block"
+
+                                                                      type="text"
+                                                                      placeholder="Search by name or category (e.g. productivity, sales)"
+                                                                      value="">
+                                </div>
+                            </div>
+
+                            <div class="p-apps_browser__list_container" data-qa="apps_browser__results_list">
+                                <div role="application">
+                                    <div role="list" class="c-virtual_list c-virtual_list--scrollbar c-scrollbar">
+                                        <div data-qa="slack_kit_scrollbar" role="presentation"
+                                             class="c-scrollbar__hider">
+                                            <div role="presentation" class="c-scrollbar__child">
+                                                <div data-qa="slack_kit_list" class="c-virtual_list__scroll_container"
+                                                     role="presentation">
+                                                    <div class="c-virtual_list__item" tabindex="-1" role="listitem"
+                                                         id="app-limit-meter">
+                                                        <div class="p-apps_browser__app_limit_meter__container">
+                                                            <div class="p-apps_browser__app_limit_meter"><p>
+                                                                <b>Upgrade to add more apps</b></p>
+                                                                <p class="p-apps_browser__app_limit_meter__paragraph">
+                                                                    Your
+                                                                    team’s already using 10 apps, the max you can use
+                                                                    with the free version of Slack. Upgrade to a paid
+                                                                    plan to add as many apps as you’d like. <a
+                                                                        target="new" class="link"
+                                                                        href="#">See upgrade
+                                                                    options</a></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div>In your workspace (11)</div>
+
+                                                    <table class="table">
+                                                        <tr>
+                                                            <div class="c-virtual_list__item" tabindex="-1"
+                                                                 role="listitem">
+
+                                                                <th>
+
+                                                                    <div class="p-apps_browser__app_info">
+
+                                                                        <div class="p-apps_browser__app_name">
+                                                                            <strong>JavaMentorBot</strong>
+                                                                        </div>
+                                                                        <div class="p-apps_browser__app_description">
+                                                                            Java Mentor
+                                                                            BBot
+                                                                        </div>
+                                                                    </div>
+                                                                </th>
+                                                                <th>
+                                                                    <button class="btn btn-outline-dark"
+                                                                            data-qa="apps_browser_row_action"
+                                                                            aria-label="View app">View
+                                                                    </button>
+                                                                </th>
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div class="c-virtual_list__item" tabindex="-1"
+                                                                 role="listitem"
+                                                                 id="app-A6NL8MJ6Q-null-undefined">
+                                                                <div class="p-apps_browser__app" data-app="true"
+                                                                     data-app_index="4" data-is_installed="true"
+                                                                     data-app_id="A6NL8MJ6Q"
+                                                                     data-bot_user_id="U7EEKSABD"
+                                                                     data-qa="apps_browser_row" role="presentation">
+                                                                    <th>
+                                                                        <div class="p-apps_browser__app_info">
+                                                                            <div class="p-apps_browser__app_name">
+                                                                                <strong>Google
+                                                                                    Drive</strong></div>
+                                                                            <div class="p-apps_browser__app_description">
+                                                                                Get
+                                                                                notifications about Google Drive files
+                                                                                within
+                                                                                Slack
+                                                                            </div>
+                                                                        </div>
+                                                                    </th>
+                                                                    <th>
+                                                                        <button class="btn btn-outline-dark"
+                                                                                id="google-drive-button">View
+                                                                        </button>
+                                                                    </th>
+                                                                </div>
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div class="c-virtual_list__item" tabindex="-1"
+                                                                 role="listitem"
+                                                                 id="app-A8GBNUWU8-B9NAX371R-undefined">
+                                                                <div class="p-apps_browser__app"
+                                                                     role="presentation">
+                                                                    <th>
+                                                                        <div class="p-apps_browser__app_info">
+                                                                            <div class="p-apps_browser__app_name">
+                                                                                <strong>GitHub</strong></div>
+                                                                            <div class="p-apps_browser__app_description">
+                                                                                Get
+                                                                                updates
+                                                                                from the world’s leading development
+                                                                                platform on
+                                                                                Slack
+                                                                            </div>
+                                                                        </div>
+                                                                    </th>
+                                                                    <th>
+                                                                        <button class="btn btn-outline-dark">View
+                                                                        </button>
+                                                                    </th>
+                                                                </div>
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div class="c-virtual_list__item" tabindex="-1"
+                                                                 role="listitem">
+                                                                <div class="p-apps_browser__app" role="presentation">
+                                                                    <th>
+                                                                        <div class="p-apps_browser__app_info">
+                                                                            <div class="p-apps_browser__app_name">
+                                                                                <strong>CodeStream</strong></div>
+                                                                            <div class="p-apps_browser__app_description">
+                                                                                The
+                                                                                knowledge base behind your codebase
+                                                                            </div>
+                                                                        </div>
+                                                                    </th>
+                                                                    <th>
+                                                                        <button class="btn btn-outline-dark">View
+                                                                        </button>
+                                                                    </th>
+                                                                </div>
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div class="c-virtual_list__item" tabindex="-1"
+                                                                 role="listitem"
+                                                                 id="app-ADZ494LHY-BR98RRTCZ-undefined">
+                                                                <div class="p-apps_browser__app" role="presentation">
+                                                                    <th>
+                                                                        <div class="p-apps_browser__app_info">
+                                                                            <div class="p-apps_browser__app_name">
+                                                                                <strong>Google
+                                                                                    Calendar</strong></div>
+                                                                            <div class="p-apps_browser__app_description">
+                                                                                See
+                                                                                your
+                                                                                schedule, respond to invites, and get
+                                                                                event
+                                                                                updates.
+                                                                            </div>
+                                                                        </div>
+                                                                    </th>
+                                                                    <th>
+                                                                        <button class="btn btn-outline-dark"
+                                                                                id="google-calendar-button">View
+                                                                        </button>
+                                                                    </th>
+                                                                </div>
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div class="c-virtual_list__item" tabindex="-1"
+                                                                 role="listitem"
+                                                                 id="app-A5GE9BMQC-BQUDPGSRH-undefined">
+                                                                <div class="p-apps_browser__app" role="presentation">
+                                                                    <th>
+                                                                        <div class="p-apps_browser__app_info">
+                                                                            <div class="p-apps_browser__app_name">
+                                                                                <strong>Zoom</strong></div>
+                                                                            <div class="p-apps_browser__app_description">
+                                                                                Easily
+                                                                                start a Zoom video meeting directly from
+                                                                                Slack.
+                                                                            </div>
+                                                                        </div>
+                                                                    </th>
+                                                                    <th>
+                                                                        <button class="btn btn-outline-dark" id="zoomCr">View
+                                                                        </button>
+                                                                    </th>
+                                                                </div>
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div class="c-virtual_list__item" tabindex="-1"
+                                                                 role="listitem"
+                                                                 id="app-A0JFRSNA3-BQCE1PHEE-undefined">
+                                                                <div class="p-apps_browser__app" role="presentation">
+                                                                    <th>
+                                                                        <div class="p-apps_browser__app_info">
+                                                                            <div class="p-apps_browser__app_name">
+                                                                                <strong>Sococo</strong></div>
+                                                                            <div class="p-apps_browser__app_description">
+                                                                                The
+                                                                                Sococo
+                                                                                application for the production
+                                                                                environment.
+                                                                            </div>
+                                                                        </div>
+                                                                    </th>
+                                                                    <th>
+                                                                        <button class="btn btn-outline-dark">View
+                                                                        </button>
+                                                                    </th>
+                                                                </div>
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div class="c-virtual_list__item" tabindex="-1"
+                                                                 role="listitem"
+                                                                 id="app-A0F7YS2SX-null-undefined">
+                                                                <div class="p-apps_browser__app" role="presentation">
+                                                                    <th>
+                                                                        <div class="p-apps_browser__app_info">
+                                                                            <div class="p-apps_browser__app_name">
+                                                                                <strong>GitHub
+                                                                                    Enterprise Server</strong></div>
+                                                                            <div class="p-apps_browser__app_description">
+                                                                                Source
+                                                                                control and code management.
+                                                                            </div>
+                                                                        </div>
+                                                                    </th>
+                                                                    <th>
+                                                                        <button class="btn btn-outline-dark">View
+                                                                        </button>
+                                                                    </th>
+                                                                </div>
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div class="c-virtual_list__item" tabindex="-1"
+                                                                 role="listitem"
+                                                                 id="app-A0F7YS351-null-undefined">
+                                                                <div class="p-apps_browser__app" role="presentation">
+                                                                    <th>
+                                                                        <div class="p-apps_browser__app_info">
+                                                                            <div class="p-apps_browser__app_name">
+                                                                                <strong>Google+
+                                                                                    Hangouts</strong></div>
+                                                                            <div class="p-apps_browser__app_description">
+                                                                                Bring
+                                                                                your
+                                                                                conversations to life with free video
+                                                                                calls.
+                                                                            </div>
+                                                                        </div>
+                                                                    </th>
+                                                                    <th>
+                                                                        <button class="btn btn-outline-dark">View
+                                                                        </button>
+                                                                    </th>
+                                                                </div>
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div class="c-virtual_list__item" tabindex="-1"
+                                                                 role="listitem"
+                                                                 id="app-A0F7YS25R-B8PK2LGQ5-undefined">
+                                                                <div class="p-apps_browser__app" role="presentation">
+                                                                    <th>
+                                                                        <div class="p-apps_browser__app_info">
+                                                                            <div class="p-apps_browser__app_name">
+                                                                                <strong>Java
+                                                                                    Mentor Bot</strong></div>
+                                                                        </div>
+                                                                    </th>
+                                                                    <th>
+                                                                        <button class="btn btn-outline-dark">View
+                                                                        </button>
+                                                                    </th>
+                                                                </div>
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div class="c-virtual_list__item" tabindex="-1"
+                                                                 role="listitem"
+                                                                 id="app-trello-undefined">
+                                                                <div class="p-apps_browser__app" role="presentation">
+                                                                    <th>
+                                                                        <div class="p-apps_browser__app_info">
+                                                                            <div class="p-apps_browser__app_name">
+                                                                                <strong>Trello</strong></div>
+                                                                        </div>
+                                                                    </th>
+                                                                    <th>
+                                                                        <button class="btn btn-outline-dark" id="trelloBtn">View
+                                                                        </button>
+                                                                    </th>
+                                                                </div>
+                                                            </div>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div role="presentation" class="c-scrollbar__track">
+                                            <div role="presentation" class="c-scrollbar__bar" tabindex="-1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add channel modal -->
+<div class="modal fade" id="addChannelModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Добавление канала</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="exampleInputChannelName">Название канала</label>
+                    <input type="text" class="form-control" id="exampleInputChannelName"
+                           placeholder="Введите название канала">
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Сделать канал приватным?</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" data-dismiss="modal" id="addChannelSubmit" class="btn btn-success">Создать канал
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add direct message modal -->
+<div class="modal fade" id="addDirectMessageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle2">Direct Messages</h5>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class=" form-check-inline pb-3">
+                        <div class="col-md-10 px-0">
+                            <input class="directMessageModal form-control" id="inputUsernameForConversation" type="text"
+                                   placeholder="Find or start a conversation">
+                        </div>
+                        <div class="col-lg-2">
+                            <button class="directMessageFindButton btn btn-dark" data-dismiss="modal"
+                                    id="addConversationSubmit" type="submit">Go
+                            </button>
+                        </div>
+                    </div>
+                    <!--                    <div class="">-->
+                    <!--                        <input class="directMessageModal form-control" type="text" placeholder="Find or start a conversation">-->
+                    <!--                        <button class="directMessageFindButton btn btn-dark" type="submit">Go</button>-->
+                    <!--                    </div>-->
+                    <div id="DirectMessageTo">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Модальное окно для поиска каналов и пользователей-->
+<div class="modal" id="modalSearcher" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog searcher-modal" role="presentation">
+        <div class="modal-content">
+
+            <div class="search-input-close">
+                <div class="search-input-box">
+                    <i class="p-classic_nav__right__search__icon">🔍</i>
+                    <div class="search-input-box-input">
+                        <input type="text" id="searchInput" class="form-control"
+                               placeholder="Search for messages, replies, or even insightful asides"
+                               style="border: 0px">
+                    </div>
+
+                </div>
+                <button type="button" class="close search-close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div id="idSearchContent">
+                Загрузка содержимого...
+            </div>
+        </div>
+    </div>
+</div>
+<!--Модальное окно для ввода GoogleCalendar ID Secret-->
+<div class="modal fade" id="addGoogleCalendarIdSecretModal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Введите GoogleCalendar ID & Secret</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <div class="form-group">
+                        <label for="InputGoogleCalendarClientId">ID</label>
+                        <input type="email" class="form-control" id="InputGoogleCalendarClientId"
+                               value="501924605842-89ijh2gpktkc73l5tt3rhg41edctnpvm.apps.googleusercontent.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="InputGoogleCalendarClientSecret">Secret</label>
+                        <input type="email" class="form-control" id="InputGoogleCalendarClientSecret"
+                               value="_LDsfncJtegBa6lf0d4P4dzV">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" data-dismiss="modal" id="addGoogleCalendarIdSecretSubmit" class="btn btn-success">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Модальное окно для ввода Trello tokens-->
+<div class="modal fade" id="addTrelloTokenSecretModal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Для подключения сервиса Trello нужно авторизоваться и ввести токен,
+                полученный на официальном сайте Trello. Наш сервис гарантирует сохранность ваших данных.
+                Наверное. Может быть. Но пальцы я скрестил, так ччто не обессудьте ;)
+
+                Ваш браузер скорее всего заблокирует всплывающее окно, дайте разрешение на открытие.
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <div class="form-group">
+                        <label for="InputGoogleCalendarClientId">Trello token:</label>
+                        <input type="email" class="form-control" id="InputTrelloToken">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" data-dismiss="modal" id="addTrelloToken" class="btn btn-success">
+                    Submit
+                </button>
+                <button type="button" data-dismiss="modal" id="takeTrelloAuthorization" class="btn btn-success">
+                    Получить Trello Token
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Модальное окно для ввода GoogleDrive ID Secret-->
+<div class="modal fade" id="addGoogleDriveIdSecretModal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Введите GoogleDrive ID & Secret</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <div class="form-group">
+                        <label for="InputGoogleDriveClientId">Client Id</label>
+                        <input type="email" class="form-control" id="InputGoogleDriveClientId"
+                               value="1013415667426-937qe60hi3rcdeos6cghnkmd1aun6m66.apps.googleusercontent.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="InputGoogleDriveClientSecret">Client Secret</label>
+                        <input type="email" class="form-control" id="InputGoogleDriveClientSecret"
+                               value="7Md1nOtQwPwIBHYBGqiPwIeY">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" data-dismiss="modal" id="addGoogleDriveIdSecretSubmit" class="btn btn-success">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--share message modal div-->
+<div class="share_message_modal_portal" id="share_message_modal_id"></div>
+</body>
+
+</html>
+
+
